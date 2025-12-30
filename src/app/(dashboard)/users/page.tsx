@@ -1,22 +1,21 @@
-'use client';
+"use client";
 
-import { LoadingState } from '@/components/ui/LoadingState';
-
-import { useState } from 'react';
-import { Plus, Search, MoreHorizontal, Edit, Trash2 } from 'lucide-react';
-import { PageHeader } from '@/components/shared/PageHeader';
-import { Button } from '@/components/ui/Button';
-import { Table, TableColumn } from '@/components/ui/Table';
-import { Badge } from '@/components/ui/Badge';
-import { EmptyState } from '@/components/ui/EmptyState';
-import { ConfirmDialog } from '@/components/ui/ConfirmDialog';
-import { User } from '@/types';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { fetchUsers, deleteUser } from '@/store/slices/userSlice';
-import { addToast } from '@/store/slices/uiSlice';
-import { useEffect } from 'react';
-import { usePermissions } from '@/hooks/usePermissions';
-import { PermissionGuard } from '@/components/providers/PermissionGuard';
+import { useState } from "react";
+import { Plus, Search, Edit, Trash2 } from "lucide-react";
+import { SkeletonTable } from "@/components/ui/SkeletonLoader";
+import { PageHeader } from "@/components/shared/PageHeader";
+import { Button } from "@/components/ui/Button";
+import { Table, TableColumn } from "@/components/ui/Table";
+import { Badge } from "@/components/ui/Badge";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
+import { User } from "@/types";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { fetchUsers, deleteUser } from "@/store/slices/userSlice";
+import { addToast } from "@/store/slices/uiSlice";
+import { useEffect } from "react";
+import { usePermissions } from "@/hooks/usePermissions";
+import { PermissionGuard } from "@/components/providers/PermissionGuard";
 
 export default function UsersPage() {
   return (
@@ -30,7 +29,7 @@ function UsersPageContent() {
   const dispatch = useAppDispatch();
   const { users, loading } = useAppSelector((state) => state.user);
   const { can } = usePermissions();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [userToDelete, setUserToDelete] = useState<User | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -39,9 +38,10 @@ function UsersPageContent() {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  const filteredUsers = users.filter((user) =>
-    user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    user.email.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredUsers = users.filter(
+    (user) =>
+      user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handleDeleteClick = (user: User) => {
@@ -55,13 +55,13 @@ function UsersPageContent() {
     setIsDeleting(true);
     // Simulate async delete
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    
+
     dispatch(deleteUser(userToDelete.id));
     dispatch(
       addToast({
         id: Date.now().toString(),
-        type: 'success',
-        title: 'User deleted',
+        type: "success",
+        title: "User deleted",
         message: `${userToDelete.name} has been removed.`,
       })
     );
@@ -73,42 +73,42 @@ function UsersPageContent() {
 
   const userColumns: TableColumn<User>[] = [
     {
-      key: 'name',
-      label: 'Name',
+      key: "name",
+      label: "Name",
     },
     {
-      key: 'email',
-      label: 'Email',
+      key: "email",
+      label: "Email",
     },
     {
-      key: 'role',
-      label: 'Role',
-      render: (value: User['role']) => {
+      key: "role",
+      label: "Role",
+      render: (value: User["role"]) => {
         const variantMap = {
-          admin: 'error' as const,
-          moderator: 'warning' as const,
-          user: 'info' as const,
+          admin: "error" as const,
+          moderator: "warning" as const,
+          user: "info" as const,
         };
         return <Badge variant={variantMap[value]}>{value}</Badge>;
       },
     },
     {
-      key: 'status',
-      label: 'Status',
-      render: (value: User['status']) => {
+      key: "status",
+      label: "Status",
+      render: (value: User["status"]) => {
         return (
-          <Badge variant={value === 'active' ? 'success' : 'default'}>
+          <Badge variant={value === "active" ? "success" : "default"}>
             {value}
           </Badge>
         );
       },
     },
     {
-      key: 'actions',
-      label: 'Actions',
+      key: "actions",
+      label: "Actions",
       render: (_, user: User) => (
         <div className="flex items-center gap-2">
-          {can('canEditUsers') && (
+          {can("canEditUsers") && (
             <button
               className="p-2 rounded-lg text-text-secondary hover:bg-surface hover:text-white transition-colors"
               title="Edit user"
@@ -116,7 +116,7 @@ function UsersPageContent() {
               <Edit className="w-4 h-4" />
             </button>
           )}
-          {can('canDeleteUsers') && (
+          {can("canDeleteUsers") && (
             <button
               onClick={() => handleDeleteClick(user)}
               className="p-2 rounded-lg text-text-secondary hover:bg-red-500/20 hover:text-red-400 transition-colors"
@@ -162,18 +162,18 @@ function UsersPageContent() {
           {/* Users Table */}
           <div className="bg-surface rounded-xl border border-primary/20 overflow-hidden shadow-sm hover:shadow-glow transition-shadow duration-300">
             {loading ? (
-              <LoadingState message="Loading users..." />
+              <SkeletonTable rows={5} />
             ) : filteredUsers.length === 0 ? (
               <EmptyState
                 title="No users found"
                 description={
                   searchQuery
                     ? `No users match "${searchQuery}". Try a different search.`
-                    : 'Get started by adding your first user.'
+                    : "Get started by adding your first user."
                 }
                 action={{
-                  label: 'Add User',
-                  onClick: () => console.log('Add user'),
+                  label: "Add User",
+                  onClick: () => console.log("Add user"),
                 }}
               />
             ) : (

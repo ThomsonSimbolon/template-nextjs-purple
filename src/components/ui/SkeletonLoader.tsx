@@ -1,19 +1,22 @@
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 export interface SkeletonLoaderProps {
-  variant?: 'text' | 'card' | 'table' | 'circular';
+  variant?: "text" | "card" | "table" | "circular";
   className?: string;
 }
 
-export function SkeletonLoader({ variant = 'text', className }: SkeletonLoaderProps) {
+export function SkeletonLoader({
+  variant = "text",
+  className,
+}: SkeletonLoaderProps) {
   const baseStyles =
-    'animate-shimmer bg-gradient-to-r from-surface via-surface/50 to-surface bg-[length:1000px_100%]';
+    "animate-shimmer bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20 bg-[length:1000px_100%]";
 
   const variants = {
-    text: 'h-4 rounded',
-    card: 'h-32 rounded-xl',
-    table: 'h-12 rounded',
-    circular: 'rounded-full aspect-square',
+    text: "h-4 rounded",
+    card: "h-32 rounded-xl",
+    table: "h-12 rounded",
+    circular: "rounded-full aspect-square",
   };
 
   return <div className={cn(baseStyles, variants[variant], className)} />;
