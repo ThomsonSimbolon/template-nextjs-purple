@@ -39,8 +39,8 @@ export function StatCard({ title, value, change, icon: Icon, trend = 'up' }: Sta
           </div>
         </div>
 
-        <div className="w-12 h-12 rounded-xl gradient-purple flex items-center justify-center shadow-glow">
-          <Icon className="w-6 h-6 text-white" />
+        <div className="w-10 h-10 rounded-xl gradient-purple flex items-center justify-center shrink-0 shadow-glow">
+          <Icon className="w-5 h-5 text-white" />
         </div>
       </div>
     </div>
