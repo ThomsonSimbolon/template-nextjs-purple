@@ -1,26 +1,38 @@
-'use client';
+"use client";
 
-import { Menu, Bell, ChevronDown, User, LogOut, PanelLeft } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { setMobileSidebarOpen, toggleSidebar } from '@/store/slices/uiSlice';
-import { logout } from '@/store/slices/authSlice';
-import { useState } from 'react';
-import { cn } from '@/lib/utils';
+import {
+  Menu,
+  Bell,
+  ChevronDown,
+  User,
+  LogOut,
+  PanelLeft,
+  Moon,
+  Sun,
+} from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { setMobileSidebarOpen, toggleSidebar } from "@/store/slices/uiSlice";
+import { logout } from "@/store/slices/authSlice";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { useTheme } from "@/hooks/useTheme";
 
 export function Navbar() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const sidebarCollapsed = useAppSelector((state) => state.ui.sidebarCollapsed);
   const user = useAppSelector((state) => state.auth.user);
-  
+  const { theme, toggleTheme } = useTheme();
+
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
-  const [notificationDropdownOpen, setNotificationDropdownOpen] = useState(false);
+  const [notificationDropdownOpen, setNotificationDropdownOpen] =
+    useState(false);
 
   const handleLogout = () => {
     dispatch(logout());
     setProfileDropdownOpen(false);
-    router.push('/signin');
+    router.push("/signin");
   };
 
   return (
@@ -32,7 +44,9 @@ export function Navbar() {
           <button
             onClick={() => dispatch(toggleSidebar())}
             className="hidden lg:flex p-2 rounded-lg text-text-secondary hover:bg-surface/50 hover:text-white transition-colors"
-            aria-label={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            aria-label={
+              sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"
+            }
           >
             <PanelLeft className="w-5 h-5" />
           </button>
@@ -48,6 +62,21 @@ export function Navbar() {
 
         {/* Right: Notifications + Profile */}
         <div className="flex items-center gap-3">
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg text-text-secondary hover:bg-surface/50 hover:text-white transition-colors"
+            title={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
+          >
+            {theme === "dark" ? (
+              <Sun className="w-5 h-5" />
+            ) : (
+              <Moon className="w-5 h-5" />
+            )}
+          </button>
+
           {/* Notifications */}
           <div className="relative">
             <button
@@ -75,7 +104,7 @@ export function Navbar() {
             )}
           </div>
 
-          { /* Profile Dropdown */}
+          {/* Profile Dropdown */}
           <div className="relative">
             <button
               onClick={() => {
@@ -88,7 +117,7 @@ export function Navbar() {
                 <User className="w-4 h-4 text-white" />
               </div>
               <span className="hidden sm:block font-medium text-sm">
-                {user?.name || 'Admin User'}
+                {user?.name || "Admin User"}
               </span>
               <ChevronDown className="w-4 h-4" />
             </button>
@@ -98,10 +127,10 @@ export function Navbar() {
               <div className="absolute right-0 mt-2 w-56 bg-surface rounded-xl shadow-glow border border-primary/20 overflow-hidden">
                 <div className="p-3 border-b border-background-secondary">
                   <p className="font-medium text-white text-sm">
-                    {user?.name || 'Admin User'}
+                    {user?.name || "Admin User"}
                   </p>
                   <p className="text-text-muted text-xs mt-1">
-                    {user?.email || 'admin@example.com'}
+                    {user?.email || "admin@example.com"}
                   </p>
                 </div>
                 <div className="p-2">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { ReduxProvider } from "@/components/providers/ReduxProvider";
 import { AuthProvider } from "@/components/providers/AuthProvider";
 
@@ -12,7 +13,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Admin Dashboard - Purple AI Theme",
-  description: "Modern admin dashboard with Next.js, Tailwind CSS, and Redux Toolkit",
+  description:
+    "Modern admin dashboard with Next.js, Tailwind CSS, and Redux Toolkit",
 };
 
 export default function RootLayout({
@@ -23,13 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <ReduxProvider>
-          <AuthProvider>
-            {children}
-          </AuthProvider>
-        </ReduxProvider>
+        <ThemeProvider>
+          <ReduxProvider>
+            <AuthProvider>{children}</AuthProvider>
+          </ReduxProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
 }
-
