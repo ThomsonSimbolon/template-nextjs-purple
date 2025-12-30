@@ -24,8 +24,8 @@ export function Navbar() {
   };
 
   return (
-    <header className="min-h-[72px] bg-background-secondary border-b border-surface/40 backdrop-blur sticky top-0 z-30">
-      <div className="h-full flex items-center justify-between px-4 md:px-6 lg:px-8 py-4">
+    <header className="h-[72px] bg-background-secondary border-b border-surface/40 backdrop-blur sticky top-0 z-30">
+      <div className="h-full flex items-center justify-between px-4 md:px-6 lg:px-8">
         {/* Left: Mobile Menu + Page Title */}
         <div className="flex items-center gap-4">
           {/* Mobile Menu Toggle */}
