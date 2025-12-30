@@ -1,9 +1,9 @@
 'use client';
 
-import { Menu, Bell, ChevronDown, User, LogOut } from 'lucide-react';
+import { Menu, Bell, ChevronDown, User, LogOut, PanelLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { setMobileSidebarOpen } from '@/store/slices/uiSlice';
+import { setMobileSidebarOpen, toggleSidebar } from '@/store/slices/uiSlice';
 import { logout } from '@/store/slices/authSlice';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -26,8 +26,17 @@ export function Navbar() {
   return (
     <header className="h-[72px] bg-background-secondary border-b border-surface/40 backdrop-blur sticky top-0 z-30">
       <div className="h-full flex items-center justify-between px-4 md:px-6 lg:px-8">
-        {/* Left: Mobile Menu + Page Title */}
+        {/* Left: Sidebar Toggle (Desktop) + Mobile Menu */}
         <div className="flex items-center gap-4">
+          {/* Desktop Sidebar Toggle */}
+          <button
+            onClick={() => dispatch(toggleSidebar())}
+            className="hidden lg:flex p-2 rounded-lg text-text-secondary hover:bg-surface/50 hover:text-white transition-colors"
+            aria-label={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          >
+            <PanelLeft className="w-5 h-5" />
+          </button>
+
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => dispatch(setMobileSidebarOpen(true))}

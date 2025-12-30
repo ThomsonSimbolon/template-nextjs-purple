@@ -7,10 +7,8 @@ import {
   Users,
   BarChart3,
   Settings,
-  ChevronLeft,
 } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { toggleSidebar } from '@/store/slices/uiSlice';
 import { cn } from '@/lib/utils';
 import { NavigationItem } from '@/types';
 import { usePermissions } from '@/hooks/usePermissions';
@@ -105,26 +103,6 @@ export function Sidebar() {
           })}
         </ul>
       </nav>
-
-      {/* Collapse Button */}
-      <div className="p-4 border-t border-surface/30">
-        <button
-          onClick={() => dispatch(toggleSidebar())}
-          className={cn(
-            'w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-text-secondary hover:bg-surface/40 hover:text-text-primary transition-all duration-200 group',
-            sidebarCollapsed ? 'justify-center' : ''
-          )}
-          title={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-        >
-          <ChevronLeft
-            className={cn(
-              'w-5 h-5 transition-all duration-300 group-hover:scale-110',
-              sidebarCollapsed ? 'rotate-180' : ''
-            )}
-          />
-          {!sidebarCollapsed && <span className="font-medium">Collapse</span>}
-        </button>
-      </div>
     </aside>
   );
 }
