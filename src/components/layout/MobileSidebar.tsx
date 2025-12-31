@@ -94,8 +94,8 @@ export function MobileSidebar() {
                     className={cn(
                       'flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200',
                       isActive
-                        ? 'bg-primary text-white shadow-glow'
-                        : 'text-text-secondary hover:bg-surface/50 hover:text-white'
+                        ? 'bg-primary/50 text-white font-semibold shadow-[inset_0_0_12px_rgba(91,49,214,0.3)]'
+                        : 'text-text-secondary hover:bg-primary/20 hover:text-white hover:shadow-[inset_0_0_8px_rgba(91,49,214,0.2)]'
                     )}
                   >
                     <Icon className="w-5 h-5" />

@@ -25,9 +25,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary:
-        'bg-primary hover:bg-[#6d3ef0] text-white shadow-glow hover:shadow-glow-xl transition-shadow duration-300',
+        'btn-gradient-primary text-white shadow-glow hover:brightness-110 hover:shadow-glow-xl active:shadow-glow active:brightness-100 transition-all duration-300',
       secondary:
-        'bg-surface/80 backdrop-blur-sm hover:bg-surface/90 text-white border border-primary/30 hover:border-primary/50',
+        'bg-surface/70 backdrop-blur-md hover:bg-surface/80 text-white border border-primary/20 hover:border-primary/30',
       ghost:
         'bg-transparent hover:bg-surface/50 text-text-secondary hover:text-white',
     };

@@ -21,6 +21,10 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .btn-gradient-primary {
+    background: linear-gradient(180deg, #6d3ef0 0%, #5b31d6 100%);
+  }
 }
 
 * {
@@ -55,7 +59,12 @@
 }
 
 body {
-  background: radial-gradient(circle at top, rgba(91, 49, 214, 0.15) 0%, #0b0a17 60%);
+  background: radial-gradient(
+    circle at top center,
+    rgba(91, 49, 214, 0.06) 0%,
+    rgba(91, 49, 214, 0.02) 40%,
+    #0b0a17 70%
+  );
   background-color: #0b0a17;
   background-attachment: fixed;
   color: #ffffff;
@@ -105,6 +114,11 @@ html[data-theme="light"] body {
 
 :root[data-theme="light"] .text-text-secondary {
   color: #4b5563;
+}
+
+/* Override text-text-secondary untuk sidebar nav items - harus lebih spesifik */
+:root[data-theme="light"] aside nav a.text-text-secondary {
+  color: #7c3aed !important; /* Purple untuk sidebar */
 }
 
 :root[data-theme="light"] .text-text-muted {
@@ -224,11 +238,39 @@ html[data-theme="light"] body {
   border-right: 2px solid #e5e7eb !important;
 }
 
+/* Override bg-surface/30 untuk sidebar di light mode */
+:root[data-theme="light"] aside.bg-surface\/30 {
+  background-color: #ffffff !important;
+}
+
 :root[data-theme="light"] nav a,
 :root[data-theme="light"] aside a {
   color: #6b7280 !important;
   transition: all 0.2s ease;
   text-decoration: none !important;
+}
+
+/* Sidebar Navigation - Default State (Purple Text) */
+/* Override semua rule sebelumnya untuk sidebar nav items */
+:root[data-theme="light"] aside nav ul li a {
+  color: #7c3aed !important; /* Purple text - override rule general */
+}
+
+:root[data-theme="light"] aside nav ul li a svg {
+  color: #7c3aed !important;
+  stroke: #7c3aed !important;
+  fill: #7c3aed !important;
+}
+
+/* Override text-text-secondary untuk sidebar nav items */
+:root[data-theme="light"] aside nav a.text-text-secondary {
+  color: #7c3aed !important; /* Purple text */
+}
+
+:root[data-theme="light"] aside nav a.text-text-secondary svg {
+  color: #7c3aed !important;
+  stroke: #7c3aed !important;
+  fill: #7c3aed !important;
 }
 
 :root[data-theme="light"] nav a:hover,
@@ -238,11 +280,43 @@ html[data-theme="light"] body {
   text-decoration: none !important;
 }
 
+/* Sidebar Navigation - Hover State (Darker Purple) */
+:root[data-theme="light"] aside nav a:hover:not([class*="bg-primary"]) {
+  background-color: #f3f4f6 !important;
+  color: #6d28d9 !important; /* Darker purple on hover */
+}
+
+:root[data-theme="light"] aside nav a:hover:not([class*="bg-primary"]) svg {
+  color: #6d28d9 !important;
+  stroke: #6d28d9 !important;
+  fill: #6d28d9 !important;
+}
+
 :root[data-theme="light"] nav a.active,
 :root[data-theme="light"] aside a.active {
   background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%) !important;
   color: #ffffff !important;
   font-weight: 600 !important;
+}
+
+/* Sidebar Navigation - Active State (More Solid Background) */
+:root[data-theme="light"] aside nav a[class*="bg-primary/30"],
+:root[data-theme="light"] aside nav a[class*="bg-primary/50"],
+:root[data-theme="light"] aside nav a[class*="bg-primary/60"] {
+  background: rgba(
+    124,
+    58,
+    237,
+    0.5
+  ) !important; /* More solid purple background */
+  color: #ffffff !important;
+}
+
+:root[data-theme="light"] aside nav a[class*="bg-primary/30"] svg,
+:root[data-theme="light"] aside nav a[class*="bg-primary/50"] svg,
+:root[data-theme="light"] aside nav a[class*="bg-primary/60"] svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
 :root[data-theme="light"] nav a.active svg,

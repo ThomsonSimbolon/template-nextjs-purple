@@ -14,7 +14,7 @@ export function StatCard({ title, value, change, icon: Icon, trend = 'up' }: Sta
   const TrendIcon = trend === 'up' ? TrendingUp : TrendingDown;
 
   return (
-    <div className="group bg-surface/60 backdrop-blur-md rounded-xl p-8 border border-primary/30 hover:border-primary/50 transition-all duration-200 hover:shadow-depth min-h-[180px] flex flex-col justify-between">
+    <div className="group bg-surface/70 backdrop-blur-md rounded-xl p-8 border border-primary/20 hover:border-primary/30 transition-all duration-300 hover:shadow-glow min-h-[180px] flex flex-col justify-between">
       <div className="flex items-start justify-between">
         <div className="flex-1">
           <p className="text-text-muted text-xs font-semibold uppercase tracking-wider">{title}</p>

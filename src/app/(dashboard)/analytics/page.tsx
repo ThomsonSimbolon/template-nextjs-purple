@@ -86,7 +86,7 @@ export default function AnalyticsPage() {
               ) : (
                 // Actual chart placeholders
                 <>
-                  <div className="bg-surface/60 backdrop-blur-md rounded-xl p-8 border border-primary/30 shadow-depth hover:shadow-glow transition-shadow duration-300">
+                  <div className="bg-surface/70 backdrop-blur-md rounded-xl p-8 border border-primary/20 shadow-sm hover:shadow-glow transition-shadow duration-300">
                     <h3 className="text-xl font-semibold text-white mb-6">
                       Traffic Overview
                     </h3>
@@ -95,7 +95,7 @@ export default function AnalyticsPage() {
                     </div>
                   </div>
 
-                  <div className="bg-surface/60 backdrop-blur-md rounded-xl p-8 border border-primary/30 shadow-depth hover:shadow-glow transition-shadow duration-300">
+                  <div className="bg-surface/70 backdrop-blur-md rounded-xl p-8 border border-primary/20 shadow-sm hover:shadow-glow transition-shadow duration-300">
                     <h3 className="text-xl font-semibold text-white mb-6">
                       User Activity
                     </h3>

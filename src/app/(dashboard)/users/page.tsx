@@ -154,13 +154,13 @@ function UsersPageContent() {
                 placeholder="Search users..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-surface/60 backdrop-blur-sm rounded-xl border border-primary/30 text-white placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors"
+                className="w-full pl-10 pr-4 py-3 bg-surface/70 backdrop-blur-md rounded-xl border border-primary/20 text-white placeholder:text-text-muted focus:outline-none focus:border-primary transition-colors"
               />
             </div>
           </div>
 
           {/* Users Table */}
-          <div className="bg-surface/60 backdrop-blur-md rounded-xl border border-primary/30 overflow-hidden shadow-depth hover:shadow-glow transition-shadow duration-300">
+          <div className="bg-surface/70 backdrop-blur-md rounded-xl border border-primary/20 overflow-hidden shadow-sm hover:shadow-glow transition-shadow duration-300">
             {loading ? (
               <SkeletonTable rows={5} />
             ) : filteredUsers.length === 0 ? (

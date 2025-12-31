@@ -36,14 +36,14 @@ export function Navbar() {
   };
 
   return (
-    <header className="h-[72px] bg-surface/30 backdrop-blur-md border-b border-primary/20 sticky top-0 z-30">
+    <header className="h-[72px] bg-primary/10 backdrop-blur-md border-b border-primary/10 sticky top-0 z-30">
       <div className="h-full flex items-center justify-between px-4 md:px-6 lg:px-8">
         {/* Left: Sidebar Toggle (Desktop) + Mobile Menu */}
         <div className="flex items-center gap-4">
           {/* Desktop Sidebar Toggle */}
           <button
             onClick={() => dispatch(toggleSidebar())}
-            className="hidden lg:flex p-2 rounded-lg text-text-secondary hover:bg-surface/50 hover:text-white transition-colors"
+            className="hidden lg:flex p-2 rounded-full text-text-secondary hover:bg-primary/20 hover:text-white transition-all duration-200 hover:shadow-[inset_0_0_8px_rgba(91,49,214,0.2)]"
             aria-label={
               sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"
             }
@@ -54,7 +54,7 @@ export function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => dispatch(setMobileSidebarOpen(true))}
-            className="lg:hidden p-2 rounded-lg text-text-secondary hover:bg-surface/50 hover:text-white transition-colors"
+            className="lg:hidden p-2 rounded-full text-text-secondary hover:bg-primary/20 hover:text-white transition-all duration-200 hover:shadow-[inset_0_0_8px_rgba(91,49,214,0.2)]"
           >
             <Menu className="w-5 h-5" />
           </button>
@@ -65,7 +65,7 @@ export function Navbar() {
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg text-text-secondary hover:bg-surface/50 hover:text-white transition-colors"
+            className="p-2 rounded-full text-text-secondary hover:bg-primary/20 hover:text-white transition-all duration-200 hover:shadow-[inset_0_0_8px_rgba(91,49,214,0.2)]"
             title={
               theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
             }
@@ -84,7 +84,7 @@ export function Navbar() {
                 setNotificationDropdownOpen(!notificationDropdownOpen);
                 setProfileDropdownOpen(false);
               }}
-              className="relative p-2 rounded-lg text-text-secondary hover:bg-surface/50 hover:text-white transition-colors"
+              className="relative p-2 rounded-full text-text-secondary hover:bg-primary/20 hover:text-white transition-all duration-200 hover:shadow-[inset_0_0_8px_rgba(91,49,214,0.2)]"
             >
               <Bell className="w-5 h-5" />
               {/* Badge */}
@@ -93,7 +93,7 @@ export function Navbar() {
 
             {/* Notification Dropdown */}
             {notificationDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-80 bg-surface/80 backdrop-blur-md rounded-xl shadow-depth border border-primary/30 overflow-hidden">
+              <div className="absolute right-0 mt-2 w-80 bg-surface/70 backdrop-blur-md rounded-xl shadow-depth border border-primary/20 overflow-hidden">
                 <div className="p-4 border-b border-background-secondary">
                   <h3 className="font-semibold text-white">Notifications</h3>
                 </div>
@@ -111,7 +111,7 @@ export function Navbar() {
                 setProfileDropdownOpen(!profileDropdownOpen);
                 setNotificationDropdownOpen(false);
               }}
-              className="flex items-center gap-2 p-2 pr-3 rounded-lg text-text-secondary hover:bg-surface/50 hover:text-white transition-colors"
+              className="flex items-center gap-2 p-2 pr-3 rounded-full text-text-secondary hover:bg-primary/20 hover:text-white transition-all duration-200 hover:shadow-[inset_0_0_8px_rgba(91,49,214,0.2)]"
             >
               <div className="w-8 h-8 rounded-full gradient-purple flex items-center justify-center">
                 <User className="w-4 h-4 text-white" />
@@ -124,7 +124,7 @@ export function Navbar() {
 
             {/* Profile Dropdown Menu */}
             {profileDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-56 bg-surface/80 backdrop-blur-md rounded-xl shadow-depth border border-primary/30 overflow-hidden">
+              <div className="absolute right-0 mt-2 w-56 bg-surface/70 backdrop-blur-md rounded-xl shadow-depth border border-primary/20 overflow-hidden">
                 <div className="p-3 border-b border-background-secondary">
                   <p className="font-medium text-white text-sm">
                     {user?.name || "Admin User"}

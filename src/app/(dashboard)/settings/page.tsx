@@ -20,7 +20,7 @@ export default function SettingsPage() {
 
           <div className="space-y-16">
             {/* Profile Settings */}
-            <div className="bg-surface/60 backdrop-blur-md rounded-xl p-8 border border-primary/30 shadow-depth hover:shadow-glow transition-shadow duration-300">
+            <div className="bg-surface/70 backdrop-blur-md rounded-xl p-8 border border-primary/20 shadow-sm hover:shadow-glow transition-shadow duration-300">
               <div className="flex items-center gap-3 mb-6">
                 <User className="w-5 h-5 text-accent" />
                 <h2 className="text-xl font-semibold text-white">Profile Settings</h2>
@@ -63,7 +63,7 @@ export default function SettingsPage() {
             </div>
 
             {/* Notification Settings */}
-            <div className="bg-surface/60 backdrop-blur-md rounded-xl p-8 border border-primary/30 shadow-depth hover:shadow-glow transition-shadow duration-300">
+            <div className="bg-surface/70 backdrop-blur-md rounded-xl p-8 border border-primary/20 shadow-sm hover:shadow-glow transition-shadow duration-300">
               <div className="flex items-center gap-3 mb-6">
                 <Bell className="w-5 h-5 text-accent" />
                 <h2 className="text-xl font-semibold text-white">Notifications</h2>
@@ -94,7 +94,7 @@ export default function SettingsPage() {
             </div>
 
             {/* Security Settings */}
-            <div className="bg-surface/60 backdrop-blur-md rounded-xl p-8 border border-primary/30 shadow-depth hover:shadow-glow transition-shadow duration-300">
+            <div className="bg-surface/70 backdrop-blur-md rounded-xl p-8 border border-primary/20 shadow-sm hover:shadow-glow transition-shadow duration-300">
               <div className="flex items-center gap-3 mb-6">
                 <Shield className="w-5 h-5 text-accent" />
                 <h2 className="text-xl font-semibold text-white">Security</h2>
