@@ -36,7 +36,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="h-[72px] bg-background-secondary border-b border-surface/40 backdrop-blur sticky top-0 z-30">
+    <header className="h-[72px] bg-surface/30 backdrop-blur-md border-b border-primary/20 sticky top-0 z-30">
       <div className="h-full flex items-center justify-between px-4 md:px-6 lg:px-8">
         {/* Left: Sidebar Toggle (Desktop) + Mobile Menu */}
         <div className="flex items-center gap-4">
@@ -93,7 +93,7 @@ export function Navbar() {
 
             {/* Notification Dropdown */}
             {notificationDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-80 bg-surface rounded-xl shadow-glow border border-primary/20 overflow-hidden">
+              <div className="absolute right-0 mt-2 w-80 bg-surface/80 backdrop-blur-md rounded-xl shadow-depth border border-primary/30 overflow-hidden">
                 <div className="p-4 border-b border-background-secondary">
                   <h3 className="font-semibold text-white">Notifications</h3>
                 </div>
@@ -124,7 +124,7 @@ export function Navbar() {
 
             {/* Profile Dropdown Menu */}
             {profileDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-56 bg-surface rounded-xl shadow-glow border border-primary/20 overflow-hidden">
+              <div className="absolute right-0 mt-2 w-56 bg-surface/80 backdrop-blur-md rounded-xl shadow-depth border border-primary/30 overflow-hidden">
                 <div className="p-3 border-b border-background-secondary">
                   <p className="font-medium text-white text-sm">
                     {user?.name || "Admin User"}

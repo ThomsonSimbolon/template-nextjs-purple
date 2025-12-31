@@ -61,7 +61,7 @@ export function MobileSidebar() {
       />
 
       {/* Sidebar */}
-      <aside className="fixed left-0 top-0 h-screen w-64 bg-background-secondary border-r border-surface/30 z-50 lg:hidden animate-slide-in">
+      <aside className="fixed left-0 top-0 h-screen w-64 bg-surface/30 backdrop-blur-md border-r border-primary/20 z-50 lg:hidden animate-slide-in">
         {/* Header */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-surface/30">
           <Link href="/" className="flex items-center gap-2" onClick={closeSidebar}>

@@ -43,7 +43,7 @@ export function Modal({ isOpen, onClose, title, children, className }: ModalProp
       {/* Modal */}
       <div
         className={cn(
-          'relative bg-surface rounded-xl border border-primary/20 shadow-glow-lg max-w-lg w-full max-h-[90vh] overflow-hidden',
+          'relative bg-surface/80 backdrop-blur-md rounded-xl border border-primary/30 shadow-depth max-w-lg w-full max-h-[90vh] overflow-hidden',
           className
         )}
       >

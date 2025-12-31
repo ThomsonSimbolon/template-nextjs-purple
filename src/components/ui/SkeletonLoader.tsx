@@ -24,7 +24,7 @@ export function SkeletonLoader({
 
 export function SkeletonCard() {
   return (
-    <div className="bg-surface rounded-xl p-6 border border-primary/20">
+    <div className="bg-surface/60 backdrop-blur-md rounded-xl p-6 border border-primary/30">
       <div className="flex justify-between items-start mb-4">
         <div className="flex-1">
           <SkeletonLoader variant="text" className="w-24 mb-2" />

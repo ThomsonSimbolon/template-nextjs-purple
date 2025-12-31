@@ -23,8 +23,12 @@ module.exports = {
         },
       },
       boxShadow: {
-        glow: "0 0 20px rgba(139, 92, 246, 0.3)",
-        "glow-lg": "0 0 30px rgba(139, 92, 246, 0.4)",
+        glow: "0 0 20px rgba(91, 49, 214, 0.4)",
+        "glow-lg": "0 0 30px rgba(91, 49, 214, 0.5)",
+        "glow-xl": "0 0 40px rgba(91, 49, 214, 0.6)",
+        "glow-sm": "0 0 15px rgba(91, 49, 214, 0.3)",
+        depth:
+          "0 4px 20px rgba(91, 49, 214, 0.25), 0 0 0 1px rgba(139, 92, 246, 0.1)",
       },
       animation: {
         shimmer: "shimmer 2s linear infinite",

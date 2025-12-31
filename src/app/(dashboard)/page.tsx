@@ -148,7 +148,7 @@ export default function DashboardPage() {
             <h2 className="text-2xl font-semibold text-white mb-6">
               Recent Activity
             </h2>
-            <div className="bg-surface rounded-xl border border-primary/20 overflow-hidden shadow-sm hover:shadow-glow transition-shadow duration-300">
+            <div className="bg-surface/60 backdrop-blur-md rounded-xl border border-primary/30 overflow-hidden shadow-depth hover:shadow-glow transition-shadow duration-300">
               {isLoading ? (
                 <SkeletonTable rows={4} />
               ) : (
