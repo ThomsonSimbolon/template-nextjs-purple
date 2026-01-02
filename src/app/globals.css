@@ -54,7 +54,7 @@
   --primary: #7c3aed;
   --accent: #a78bfa;
   --text-primary: #111827;
-  --text-secondary: #4b5563;
+  --text-secondary: #6b7280;
   --text-muted: #9ca3af;
 }
 
@@ -113,7 +113,7 @@ html[data-theme="light"] body {
 }
 
 :root[data-theme="light"] .text-text-secondary {
-  color: #4b5563;
+  color: #374151;
 }
 
 /* Override text-text-secondary untuk sidebar nav items - harus lebih spesifik */
@@ -161,30 +161,33 @@ html[data-theme="light"] body {
 
 /* Light Mode Scrollbar */
 :root[data-theme="light"] ::-webkit-scrollbar-track {
-  background: #f3f4f6;
+  background: #f9fafb;
 }
 
 :root[data-theme="light"] ::-webkit-scrollbar-thumb {
   background: #d1d5db;
+  border-radius: 4px;
+  transition: background 0.2s ease;
 }
 
 :root[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
-  background: #7c3aed;
+  background: #a78bfa;
 }
 
 /* ===== LIGHT MODE COMPONENT STYLING ===== */
 
 /* Table Styling - Override Tailwind classes */
 :root[data-theme="light"] table thead tr {
-  background-color: #ede9fe !important;
-  border-bottom-color: #c4b5fd !important;
+  background-color: #f5f3ff !important;
+  border-bottom: 2px solid #ddd6fe !important;
+  box-shadow: 0 1px 3px rgba(124, 58, 237, 0.05) !important;
 }
 
 :root[data-theme="light"] table thead th {
-  color: #111827 !important;
-  background-color: #ede9fe !important;
+  color: #5b21b6 !important;
+  background-color: #f5f3ff !important;
   font-weight: 600 !important;
-  padding: 12px 16px !important;
+  padding: 14px 18px !important;
   text-transform: uppercase;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
@@ -193,60 +196,67 @@ html[data-theme="light"] body {
 :root[data-theme="light"] table tbody tr {
   border-bottom-color: #e5e7eb !important;
   background-color: #ffffff !important;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 :root[data-theme="light"] table tbody tr:hover {
-  background-color: #f9fafb !important;
-  transition-duration: 200ms;
+  background-color: #faf5ff !important;
+  box-shadow: 0 1px 3px rgba(124, 58, 237, 0.06) !important;
+  transition-duration: 150ms;
 }
 
 :root[data-theme="light"] table tbody td {
-  color: #4b5563 !important;
-  padding: 12px 16px !important;
+  color: #1f2937 !important;
+  padding: 14px 18px !important;
 }
 
 /* Card & Surface Styling */
 :root[data-theme="light"] .rounded-lg {
   border: 1px solid #e5e7eb !important;
-  background-color: #ffffff !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
-  transition: box-shadow 0.2s ease;
+  background-color: #fefefe !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 :root[data-theme="light"] .rounded-lg:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1), 0 2px 4px rgba(124, 58, 237, 0.06) !important;
+  border-color: rgba(124, 58, 237, 0.2) !important;
+  transform: translateY(-1px);
 }
 
 :root[data-theme="light"] .card {
   border: 1px solid #e5e7eb !important;
-  background-color: #ffffff !important;
+  background-color: #fefefe !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04) !important;
 }
 
 :root[data-theme="light"] [class*="bg-surface"] {
-  background-color: #f9fafb !important;
+  background-color: #fafaf9 !important;
   border-color: #e5e7eb !important;
 }
 
 /* Sidebar & Navbar Styling */
 :root[data-theme="light"] nav {
   background-color: #ffffff !important;
-  /* border-right dihapus karena sudah diwarisi dari parent aside */
+  border-bottom: 1px solid #e5e7eb !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
 }
 
 :root[data-theme="light"] aside {
-  background-color: #ffffff !important;
-  border-right: 2px solid #e5e7eb !important;
+  background: linear-gradient(180deg, #faf8ff 0%, #fdfbff 100%) !important;
+  border-right: 1px solid #ede9fe !important;
+  box-shadow: 2px 0 12px rgba(124, 58, 237, 0.04) !important;
 }
 
 /* Override bg-surface/30 untuk sidebar di light mode */
 :root[data-theme="light"] aside.bg-surface\/30 {
-  background-color: #ffffff !important;
+  background: linear-gradient(180deg, #faf8ff 0%, #fdfbff 100%) !important;
 }
 
 :root[data-theme="light"] nav a,
 :root[data-theme="light"] aside a {
   color: #6b7280 !important;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   text-decoration: none !important;
 }
 
@@ -275,21 +285,26 @@ html[data-theme="light"] body {
 
 :root[data-theme="light"] nav a:hover,
 :root[data-theme="light"] aside a:hover {
-  background-color: #f3f4f6 !important;
+  background-color: #f5f3ff !important;
   color: #7c3aed !important;
   text-decoration: none !important;
+  transition: all 0.15s ease !important;
 }
 
 /* Sidebar Navigation - Hover State (Darker Purple) */
 :root[data-theme="light"] aside nav a:hover:not([class*="bg-primary"]) {
-  background-color: #f3f4f6 !important;
-  color: #6d28d9 !important; /* Darker purple on hover */
+  background-color: #f5f3ff !important;
+  color: #6d28d9 !important;
+  box-shadow: inset 3px 0 0 #7c3aed !important;
+  transform: translateX(2px);
+  transition: all 0.2s ease !important;
 }
 
 :root[data-theme="light"] aside nav a:hover:not([class*="bg-primary"]) svg {
   color: #6d28d9 !important;
   stroke: #6d28d9 !important;
   fill: #6d28d9 !important;
+  transition: all 0.2s ease !important;
 }
 
 :root[data-theme="light"] nav a.active,
@@ -303,13 +318,11 @@ html[data-theme="light"] body {
 :root[data-theme="light"] aside nav a[class*="bg-primary/30"],
 :root[data-theme="light"] aside nav a[class*="bg-primary/50"],
 :root[data-theme="light"] aside nav a[class*="bg-primary/60"] {
-  background: rgba(
-    124,
-    58,
-    237,
-    0.5
-  ) !important; /* More solid purple background */
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%) !important;
   color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25) !important;
+  border-left: 3px solid #6d28d9 !important;
+  font-weight: 600 !important;
 }
 
 :root[data-theme="light"] aside nav a[class*="bg-primary/30"] svg,
@@ -327,25 +340,37 @@ html[data-theme="light"] body {
 
 /* Button Styling */
 :root[data-theme="light"] button {
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 :root[data-theme="light"] button:not([class*="bg-"]) {
   color: #111827;
   border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+:root[data-theme="light"] button:not([class*="bg-"]):hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
 }
 
 :root[data-theme="light"] button[class*="bg-primary"],
 :root[data-theme="light"] button[class*="gradient-purple"] {
-  background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
   color: #ffffff;
   border: none;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.2);
 }
 
 :root[data-theme="light"] button[class*="bg-primary"]:hover,
 :root[data-theme="light"] button[class*="gradient-purple"]:hover {
-  opacity: 0.9;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.35);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
 }
 
 /* Card Icon Buttons - White text pada purple background */
@@ -370,6 +395,8 @@ html[data-theme="light"] body {
   background-color: #ffffff;
   color: #111827;
   border: 1px solid #d1d5db;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 :root[data-theme="light"] input:focus,
@@ -377,7 +404,7 @@ html[data-theme="light"] body {
 :root[data-theme="light"] select:focus {
   border-color: #7c3aed;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12), 0 1px 3px rgba(124, 58, 237, 0.1);
 }
 
 :root[data-theme="light"] input::placeholder {
@@ -398,6 +425,7 @@ html[data-theme="light"] body {
   background-color: #10b981 !important;
   color: #ffffff !important;
   border-color: #059669 !important;
+  box-shadow: 0 1px 2px rgba(5, 150, 105, 0.15) !important;
 }
 
 /* Warning Badge - Pending */
@@ -406,6 +434,7 @@ html[data-theme="light"] body {
   background-color: #f59e0b !important;
   color: #ffffff !important;
   border-color: #d97706 !important;
+  box-shadow: 0 1px 2px rgba(217, 119, 6, 0.15) !important;
 }
 
 /* Danger Badge */
@@ -414,6 +443,7 @@ html[data-theme="light"] body {
   background-color: #ef4444 !important;
   color: #ffffff !important;
   border-color: #dc2626 !important;
+  box-shadow: 0 1px 2px rgba(220, 38, 38, 0.15) !important;
 }
 
 /* Info Badge */
@@ -422,16 +452,20 @@ html[data-theme="light"] body {
   background-color: #3b82f6 !important;
   color: #ffffff !important;
   border-color: #2563eb !important;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.15) !important;
 }
 
 /* Link Styling */
 :root[data-theme="light"] a:not([class*="nav"]):not([class*="sidebar"]) {
   color: #7c3aed;
+  transition: color 0.15s ease;
 }
 
 :root[data-theme="light"] a:not([class*="nav"]):not([class*="sidebar"]):hover {
   color: #6d28d9;
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
 
 /* Modal & Dialog Styling */
@@ -439,7 +473,9 @@ html[data-theme="light"] body {
 :root[data-theme="light"] .modal {
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(124, 58, 237, 0.05);
 }
 
 /* Divider Styling */
@@ -451,9 +487,10 @@ html[data-theme="light"] body {
 /* Code Block Styling */
 :root[data-theme="light"] code,
 :root[data-theme="light"] pre {
-  background-color: #f3f4f6;
-  color: #111827;
+  background-color: #f9fafb;
+  color: #1f2937;
   border: 1px solid #e5e7eb;
+  font-family: "Fira Code", "Consolas", "Monaco", monospace;
 }
 
 /* Custom Layout Fix for Sidebar */
